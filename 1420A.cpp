@@ -44,7 +44,7 @@ int main() {
 	ios::sync_with_stdio(false);
 	cin.tie(NULL);
 	int T;
-	ll mx;
+	bool pos;
 	cin >> T;
 	while(T--) {
 		cin >> N;
@@ -52,15 +52,15 @@ int main() {
 		for (int i = 0; i < N; i++) {
 			cin >> A[i];
 		}
-		if (N == 1) {
-			cout << "YES\n";
-			continue;
+		pos = true:
+		for (int i = 1; i < N-1; i++) {
+			if (A[i] >= A[i-1]) {
+				pos = false;
+				break;
+			}
 		}
-		mx = N;
-		mx *= (mx-1);
-		mx /= 2;
-		if (countInv(0, N-1) < mx) cout << "YES\n";
-		else cout << "NO\n";
+		if (pos) cout << "NO\n";
+		else cout << "YES\n";
 	}
 	return 0;
 }
